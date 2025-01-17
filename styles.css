@@ -1,0 +1,660 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #e9edf5;
+}
+
+/* Estilo da navegação */
+.navigation {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.background-bar {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  right: 0;
+  width: calc(100% - 20px); /* Ajusta para cobrir apenas os ícones */
+  height: 50px; /* Altura da tarja preta */
+  background-color: black;
+  border-radius: 20px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 2; /* Para que os ícones fiquem sobre a tarja */
+  position: relative;
+}
+
+.list {
+  position: relative;
+  padding: 10px 20px;
+  z-index: 2;
+}
+
+.list a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.icon {
+  font-size: 24px; /* Uniformiza o tamanho de todos os ícones */
+}
+
+.text {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.list:hover .icon {
+  background-color: transparent; /* Remove o fundo preto ao passar o mouse */
+  transform: scale(1.1); /* Aumenta o tamanho do ícone */
+}
+
+.list:hover ~ .background-bar {
+  background-color: black; /* Mantém o fundo nas áreas fora do hover */
+}
+
+.list:hover {
+  z-index: 3; /* Garante que o ícone em hover fique acima da tarja */
+}
+
+
+/* Lista de ícones */
+.navigation ul {
+  position: relative;
+  display: flex;
+  z-index: 2; /* Ícones ficam acima da tarja preta */
+}
+
+.navigation ul li {
+  position: relative;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 190px; /* Tamanho dos ícones */
+  height: 80px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Ícone circular */
+.navigation ul li .icon {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  background: #0acff1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  transition: 0.5s;
+}
+
+
+.navigation ul li.active .icon {
+  background: linear-gradient(45deg, #1e90ff, #ff7f50);
+  color: white;
+  transform: scale(1.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.navigation ul li:hover .icon {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #1e90ff, #ff7f50);
+  color: white;
+}
+
+/* Efeito de hover */
+.navigation ul li:hover {
+  transform: translateY(-10px); /* Levanta o ícone ao passar o mouse */
+}
+
+/* Texto do ícone */
+.navigation ul li .text {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.navigation ul li.active .text,
+.navigation ul li:hover .text {
+  opacity: 1;
+  transform: translateY(0);
+  color: #1e90ff;
+}
+
+/* Força o ícone "Meus Projetos" a seguir o padrão */
+.navigation ul li:nth-child(2) .icon {
+  width: 60px; /* Largura igual aos outros */
+  height: 60px; /* Altura igual aos outros */
+  font-size: 24px; /* Tamanho do ícone interno */
+}
+
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  margin: 0 0 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #34495e;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+p {
+  margin: 0 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #e74c3c;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #c0392b;
+}
+
+/* Estilo para a seção do cabeçalho */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Necessário para o overlay */
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.582), 
+      rgba(0, 0, 0, 0.658)
+  ), url('https://files.oaiusercontent.com/file-51Q7G8JH2zEcyRtkea1pZZ?se=2025-01-16T22%3A48%3A30Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Df8e8388d-1ed7-4025-ad54-15ec05ebe8f5.webp&sig=Pd%2B9m6HYsxM5md1S7/ur349DvJPxE1ghlHOoGOOwRw8%3D') no-repeat center center/cover; /* Fundo com transparência */
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+  z-index: 2; /* Para que o conteúdo fique acima do fundo */
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: #fff; /* Texto em branco para contraste */
+}
+
+/* Estilo para o texto e os ícones */
+.text-section {
+  max-width: 50%;
+  text-align: right;
+}
+
+.text-section h1 {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #0adae9;
+}
+
+.text-section p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.icons a {
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.icons a:hover {
+  color: #f1c40f; /* Destaque em amarelo-dourado ao passar o mouse */
+}
+
+/* Estilo para a imagem */
+.image-section {
+  max-width: 50%;
+  z-index: 2; /* Para que a imagem seja visível acima do fundo */
+}
+
+.image-section img {
+  width: 73%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.about-me {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 50px 20px;
+  background-color: #f4f4f4;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.text-and-image-left {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.text-above-image {
+  text-align: left;
+  font-size: 25px;
+}
+
+.text-above-image h1.about {
+  font-size: 4rem;
+  color: #00aaff;
+  position: relative;
+  top: -20px;
+  left: 20px;
+}
+
+.image-left {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.image-left img {
+  width: 400px; /* Define a largura das imagens */
+  height: 400px; /* Define a altura para que fiquem quadradas */
+  object-fit: cover; /* Garante que a imagem seja cortada para caber no quadrado */
+  border-radius: 10px; /* Suaviza os cantos (opcional, remova se não quiser arredondamento) */
+  margin: 10px auto; /* Centraliza as imagens */
+  display: block; /* Garante o comportamento como bloco */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra para destacar */
+}
+
+.text-and-image-right {
+  flex: 1;
+  text-align: left;
+  margin-top: 20px;
+  font-size: 25px;
+}
+
+.image-right {
+  text-align: center;
+}
+
+.image-right img {
+  width: 400px; /* Define a largura das imagens */
+  height: 400px; /* Define a altura para que fiquem quadradas */
+  object-fit: cover; /* Garante que a imagem seja cortada para caber no quadrado */
+  border-radius: 10px; /* Suaviza os cantos (opcional, remova se não quiser arredondamento) */
+  margin: 10px auto; /* Centraliza as imagens */
+  display: block; /* Garante o comportamento como bloco */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra para destacar */
+
+}
+
+.image-right h1.me {
+  font-size: 4rem;
+  color: #000;
+  margin-top: 10px;
+}
+
+.text-below {
+  margin-top: 10px;
+}
+
+
+
+/* Projects Section */
+.projects-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 80px;
+  background-color: #f9f9f9; /* Ajuste conforme seu layout */
+  gap: 20px;
+}
+
+.text-container {
+  flex: 1;
+  margin-right: 30px;
+  text-align: left;
+}
+
+.section-title {
+  font-size: 4em;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333; /* Ajuste conforme sua paleta de cores */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1; /* Controla o espaçamento entre linhas */
+}
+
+.section-title span {
+  display: inline-block;
+}
+
+.word-meus {
+  display: inline-block;
+  color: #34495e;
+  margin-bottom: -10px; /* Ajuste fino para aproximar */
+}
+
+.word-projetos {
+  display: inline-block;
+  margin-left: 305px; /* Ajuste para alinhar com "US" */
+  color: #1e90ff;
+}
+
+
+.section-description {
+  font-size: 1.4em;
+  line-height: 1.6;
+  color: #666;
+}
+
+.video-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.phone-frame {
+  width: 280px;
+  height: 560px;
+  border: 12px solid #ccc;
+  border-radius: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  background-color: #000;
+  position: relative;
+}
+
+.phone-frame::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 5px;
+  background-color: #aaa;
+  border-radius: 3px;
+}
+
+.phone-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Services Section */
+.services-section {
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  padding: 50px 20px;
+}
+
+.services-background img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.services-content h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #0a032c;
+}
+
+.services-items {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.service-item {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  transition: transform 0.3s;
+}
+
+.service-item:hover {
+  transform: scale(1.1);
+}
+
+.service-icon ion-icon {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.service-item p {
+  font-size: 0.9em;
+  margin: 0;
+}
+
+
+/* Contact Section */
+.contact-section {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+background-color: #f7f7f7; /* Ajuste para a cor do fundo desejada */
+}
+
+.contact-container {
+display: flex;
+flex-direction: row;
+gap: 20px;
+max-width: 800px;
+width: 100%;
+}
+
+.contact-image img {
+border-radius: 50%;
+width: 150px;
+height: 150px;
+object-fit: cover;
+}
+
+.contact-details {
+font-family: 'Poppins', sans-serif;
+font-size: 20px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.contact-details h2 {
+margin: 0;
+font-size: 35px;
+color: #333;
+}
+
+.contact-details p {
+margin: 0;
+font-weight: bold;
+align-items:end;
+color: #131212;
+}
+
+.contact-details ul {
+list-style: none;
+flex-direction: column;
+padding: 0;
+margin: 0;
+}
+
+.contact-details li {
+display: flex;
+align-items: center;
+margin-bottom: 15px; /* Espaçamento entre os itens */
+}
+
+.contact-details li .icon {
+font-size: 20px;
+color: #333;
+margin-right: 10px;
+}
+
+
+/* Menu Styles */
+.menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #21252b;
+  padding: 10px 20px;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  max-width: 600px;
+  position: relative;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.menu-item svg {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+  margin-bottom: 5px;
+  transition: fill 0.3s;
+}
+
+.menu-item:hover {
+  color: #1e90ff;
+}
+
+.menu-item:hover svg {
+  fill: #1e90ff;
+}
+
+.menu-item.active {
+  color: #1e90ff;
+}
+
+.menu-item.active svg {
+  fill: #1e90ff;
+}
+
+.menu-item span {
+  font-size: 0.75rem;
+}
+
+/* Cores para as seções */
+.white-bg {
+  background-color: #ffffff; /* Branco */
+  color: #000000; /* Preto para o texto */
+}
+
+.rose-bg {
+  background-color: #f4c2c2; /* Rose */
+  color: #000000; /* Preto para o texto */
+}
+
+/* Estilização geral */
+section {
+  padding: 50px 20px; /* Espaçamento interno */
+}
+
+/* Ajustes para o texto */
+section h2, section p {
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Para melhorar a responsividade */
+@media (max-width: 768px) {
+  section {
+      padding: 30px 10px;
+  }
+}
